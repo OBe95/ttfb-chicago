@@ -17,5 +17,5 @@ app.use('/', rootUrl)
 // Set app ports
 app.listen(PORT, (err) => {
     if (err) return console.log(err)
-    console.log('My Port:', PORT)
+    console.log('My Port Number', PORT)
 })

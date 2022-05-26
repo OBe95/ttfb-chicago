@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="292fd29b-95ea-4dc0-9dbc-2c7ffb221a35" name="Changes" comment="Fresh push">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "com.google.cloudcode.ide_session_index": "20220526_0013",
+    "com.google.cloudcode.ide_session_index": "20220527_0001",
     "javascript.nodejs.core.library.configured.version": "14.16.1",
     "javascript.nodejs.core.library.typings.version": "14.18.18",
     "last_opened_file_path": "C:/Users/Richard/Pictures/00 SerpWorx/ttfb/chicago",
@@ -140,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653476581533</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fresh push">
+      <created>1653572582853</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653572582853</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fresh push">
+      <created>1653573055007</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653573055007</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
