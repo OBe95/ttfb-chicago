@@ -4,6 +4,6 @@ router = express.Router()
 
 // User account page
 router.post('/', checkTimings)
-router.get('/', (req, res) => { res.sendStatus(403) })
+router.get('/', (req, res) =>  res.send('Should be fine') )
 
 module.exports = router
