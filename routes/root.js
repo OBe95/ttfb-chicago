@@ -3,7 +3,7 @@ const {checkTimings} = require('../controllers/puppeteer-check')
 router = express.Router()
 
 // User account page
-router.post('/', checkTimings)
+router.post('/check', checkTimings)
 router.get('/', (req, res) => { res.send('Should be fine') })
 
 module.exports = router
