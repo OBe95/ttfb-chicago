@@ -1,10 +1,13 @@
 require('dotenv').config()
 const PORT = process.env.PORT || 80
 const express = require('express')
+const cors = require('cors')
 const app = express()
 
 // Express App settings
 app.disable('x-powered-by')
+app.use(cors())
+app.options('*', cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
