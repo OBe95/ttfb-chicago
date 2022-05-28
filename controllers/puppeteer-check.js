@@ -18,8 +18,8 @@ const checkTimings = async (req, res) => {
         // Start Puppeteer
         browser = await puppeteer.launch({
             headless: false,
-            ignoreDefaultArgs: ['--disable-extensions'],
-            args: ['--single-process'],
+            // ignoreDefaultArgs: ['--disable-extensions'],
+            // args: ['--single-process'],
         })
 
         // Open new page
@@ -80,7 +80,7 @@ const checkTimings = async (req, res) => {
 
     } catch (err) {
         console.log('err', err)
-        res.json({err: err})
+        res.json({err: JSON.stringify(err)})
 
     } finally {
         // Log checks
