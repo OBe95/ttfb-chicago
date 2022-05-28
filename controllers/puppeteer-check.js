@@ -24,19 +24,19 @@ const checkTimings = async (req, res) => {
         const page = await browser.newPage()
 
         // Set the headers
-       /* await page.setExtraHTTPHeaders({
+        await page.setExtraHTTPHeaders({
             'user-agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36',
             'upgrade-insecure-requests': '1',
-            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*!/!*;q=0.8,application/signed-exchange;v=b3',
+            'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
             'accept-encoding': 'gzip, deflate, br',
             'accept-language': 'en-US,en;q=0.9,en;q=0.8'
-        })*/
+        })
 
         // Fetch th given URL
         await page.goto(urlCheck)
 
         // Get performance entries
-        /*const rawPerfEntries = await page.evaluate(function () {
+        const rawPerfEntries = await page.evaluate(function () {
             return JSON.stringify(window.performance.getEntries())
         })
 
@@ -57,23 +57,23 @@ const checkTimings = async (req, res) => {
         const sslHandshake = (performanceMetrics[0].connectEnd - performanceMetrics[0].secureConnectionStart)
 
         // Just a compare that can be deleted
-        if (performanceMetrics[0].domainLookupEnd === performanceMetrics[0].domainLookupStart) console.log('Same')*/
+        if (performanceMetrics[0].domainLookupEnd === performanceMetrics[0].domainLookupStart) console.log('Same')
 
         // Collate final results
-       /* finalResults = {
+        finalResults = {
             ipArea: location,
             DNS: Number(dnsLookup.toFixed(3)),
             Connect: Number(connectTime.toFixed(2)),
             SSL: Number(sslHandshake.toFixed(2)),
             TTFB: Number(firstByte)
-        }*/
+        }
 
-        /*console.log('FinalResults', typeof finalResults, finalResults)
+        console.log('FinalResults', typeof finalResults, finalResults)
 
         // Add to object
         finalPayload.push(finalResults)
 
-        console.log('finalPayload top', finalPayload)*/
+        console.log('finalPayload top', finalPayload)
 
     } catch (err) {
         console.log('err', err)
@@ -84,8 +84,8 @@ const checkTimings = async (req, res) => {
         // Log checks
         // console.log('finalPayload', JSON.stringify(finalPayload))
         // Send response payload
-        // res.json(finalPayload)
-        res.json({success: 'true'})
+        res.json(finalPayload)
+        // res.json({success: 'true'})
 
         await browser.close()
         console.log('Browser was closed')
