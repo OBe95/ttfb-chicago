@@ -43,6 +43,8 @@ const checkTimings = async (req, res) => {
             return JSON.stringify(window.performance.getEntries())
         })
 
+        return res.json(rawPerfEntries)
+
         // Parsing the performance entries results
         const performanceMetrics = JSON.parse(rawPerfEntries)
         console.log('rawPerfEntries', performanceMetrics[0])
