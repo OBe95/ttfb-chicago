@@ -17,7 +17,7 @@ const checkTimings = async (req, res) => {
     try {
         // Start Puppeteer
         browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
         })
 
         // Open new page
@@ -77,6 +77,7 @@ const checkTimings = async (req, res) => {
 
     } catch (err) {
         console.log('err', err)
+        await browser.close()
         return res.json({error: err})
 
     } finally {
