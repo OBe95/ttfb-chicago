@@ -15,13 +15,14 @@ const checkTimings = async (req, res) => {
 
     // Do the TTFB Checks
     try {
+        throw new Error("TeST")
         // Start Puppeteer
         browser = await puppeteer.launch({
             headless: false,
             // ignoreDefaultArgs: ['--disable-extensions'],
             // args: ['--single-process'],
         })
-        throw new Error("TeST")
+
 
         // Open new page
         const page = await browser.newPage()
