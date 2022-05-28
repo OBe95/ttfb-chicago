@@ -18,7 +18,8 @@ const checkTimings = async (req, res) => {
         // Start Puppeteer
         browser = await puppeteer.launch({
             headless: false,
-            slowMo: 250
+            slowMo: 250,
+            args: ['--headless']
         })
 
         // Open new page
@@ -34,10 +35,11 @@ const checkTimings = async (req, res) => {
         })
 
         // Fetch th given URL
-        await page.goto(urlCheck, {
-            timeout: 5000,
-            waitUntil: 'domcontentloaded'
-        })
+        page.goto(urlCheck);
+        await Promise.race([
+            page.waitForNavigation({waitUntil: 'domcontentloaded'}),
+            page.waitForNavigation({waitUntil: 'load'})
+        ])
 
         await page.screenshot(({ fullPage: true, path: 'screenshot.png' }))
 
