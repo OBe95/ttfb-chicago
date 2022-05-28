@@ -37,13 +37,12 @@ const checkTimings = async (req, res) => {
         // Fetch th given URL
         await page.goto(urlCheck)
 
+        throw new Error("TeST")
+
         // Get performance entries
         const rawPerfEntries = await page.evaluate(function () {
-            // throw new Error(window.performance.getEntries())
             return JSON.stringify(window.performance.getEntries())
         })
-
-        return res.send(rawPerfEntries)
 
         // Parsing the performance entries results
         const performanceMetrics = JSON.parse(rawPerfEntries)
