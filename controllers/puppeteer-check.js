@@ -17,7 +17,7 @@ const checkTimings = async (req, res) => {
     try {
         // Start Puppeteer
         browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             slowMo: 250
         })
 
@@ -35,8 +35,11 @@ const checkTimings = async (req, res) => {
 
         // Fetch th given URL
         await page.goto(urlCheck, {
-            waitUntil: 'networkidle0'
+            timeout: 5000,
+            waitUntil: 'domcontentloaded'
         })
+
+        await page.screenshot(({ fullPage: true, path: 'screenshot.png' }))
 
         // Get performance entries
         const rawPerfEntries = await page.evaluate(function () {
