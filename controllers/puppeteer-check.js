@@ -1,4 +1,6 @@
 const puppeteer = require('puppeteer')
+const express = require("express");
+router = express.Router()
 
 // Initial launch of browser
 let browser
@@ -89,4 +91,13 @@ const checkTimings = async (req, res) => {
     }
 }
 
-module.exports = {checkTimings}
+// Test post endpoint
+const postTest = async (req, res) => {
+    let testValue = req.body.urlValue
+    let responseCheck = {
+        "testKey": testValue
+    }
+    res.json(responseCheck)
+}
+
+module.exports = {checkTimings, postTest}

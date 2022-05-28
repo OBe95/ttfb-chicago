@@ -3,9 +3,11 @@ const PORT = process.env.PORT || 80
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const allowCrossDomain = require('./headers/set-headers')
 
 // Express App settings
 app.disable('x-powered-by')
+app.use(allowCrossDomain)
 app.use(cors())
 app.options('*', cors())
 app.use(express.json())
