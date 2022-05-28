@@ -39,9 +39,11 @@ const checkTimings = async (req, res) => {
 
         // Get performance entries
         const rawPerfEntries = await page.evaluate(function () {
-            throw new Error(window.performance.getEntries())
+            // throw new Error(window.performance.getEntries())
             return JSON.stringify(window.performance.getEntries())
         })
+
+        return res.send(rawPerfEntries)
 
         // Parsing the performance entries results
         const performanceMetrics = JSON.parse(rawPerfEntries)
