@@ -18,8 +18,7 @@ const checkTimings = async (req, res) => {
         // Start Puppeteer
         browser = await puppeteer.launch({
             headless: false,
-            slowMo: 250,
-            args: ["--no-sandbox", "--disabled-setupid-sandbox"],
+            args: ['--single-process']
         })
 
         // Open new page
