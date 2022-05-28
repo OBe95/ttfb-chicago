@@ -19,7 +19,7 @@ const checkTimings = async (req, res) => {
         browser = await puppeteer.launch({
             headless: false,
             slowMo: 250,
-            args: ['--headless']
+            args: ["--no-sandbox", "--disabled-setupid-sandbox"],
         })
 
         // Open new page
@@ -35,20 +35,12 @@ const checkTimings = async (req, res) => {
         })
 
         // Fetch th given URL
-        page.goto(urlCheck);
-        await Promise.race([
-            page.waitForNavigation({waitUntil: 'domcontentloaded'}),
-            page.waitForNavigation({waitUntil: 'load'})
-        ])
-
-        await page.screenshot(({ fullPage: true, path: 'screenshot.png' }))
+        await page.goto(urlCheck)
 
         // Get performance entries
         const rawPerfEntries = await page.evaluate(function () {
             return JSON.stringify(window.performance.getEntries())
         })
-
-        return res.json(rawPerfEntries)
 
         // Parsing the performance entries results
         const performanceMetrics = JSON.parse(rawPerfEntries)
