@@ -78,7 +78,7 @@ const checkTimings = async (req, res) => {
 
     } catch (err) {
         console.log('err', err)
-        return res.sendStatus(400)
+        return res.send(err)
 
     } finally {
         // Log checks
