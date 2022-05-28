@@ -21,6 +21,7 @@ const checkTimings = async (req, res) => {
             // ignoreDefaultArgs: ['--disable-extensions'],
             // args: ['--single-process'],
         })
+        throw new Error("TeST")
 
         // Open new page
         const page = await browser.newPage()
@@ -36,8 +37,6 @@ const checkTimings = async (req, res) => {
 
         // Fetch th given URL
         await page.goto(urlCheck)
-
-        throw new Error("TeST")
 
         // Get performance entries
         const rawPerfEntries = await page.evaluate(function () {
