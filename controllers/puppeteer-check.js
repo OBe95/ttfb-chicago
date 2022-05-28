@@ -34,7 +34,9 @@ const checkTimings = async (req, res) => {
         })
 
         // Fetch th given URL
-        await page.goto(urlCheck)
+        await page.goto(urlCheck, {
+            waitUntil: 'networkidle0'
+        })
 
         // Get performance entries
         const rawPerfEntries = await page.evaluate(function () {
