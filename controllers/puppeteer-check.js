@@ -2,11 +2,11 @@ const puppeteer = require('puppeteer')
 const express = require("express");
 router = express.Router()
 
-// Initial launch of browser
-let browser
-let location = 'Chicago'
-
 const checkTimings = async (req, res) => {
+
+    // Initial launch of browser
+    let browser
+    let location = 'Chicago'
 
     // Define the url to check
     let urlCheck = req.body.urlValue
